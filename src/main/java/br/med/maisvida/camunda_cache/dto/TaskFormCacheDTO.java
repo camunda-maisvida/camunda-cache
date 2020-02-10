@@ -4,6 +4,8 @@ import javax.validation.constraints.NotBlank;
 
 import org.apache.commons.lang3.StringUtils;
 
+import br.med.maisvida.camunda_cache.entity.TaskFormCache;
+
 public class TaskFormCacheDTO {
 
 	@NotBlank
@@ -21,6 +23,15 @@ public class TaskFormCacheDTO {
 		super();
 		this.taskId = taskId;
 		this.json = json;
+	}
+
+	public TaskFormCacheDTO( TaskFormCache entity ) {
+
+		super();
+		if (entity != null) {
+			this.taskId = entity.getTaskId();
+			this.json = entity.getJson();
+		}
 	}
 
 	/**
